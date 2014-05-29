@@ -1,26 +1,40 @@
 .container {
-  margin: 20px auto;
-  width: 600px;
+  width: 100%;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
-  position: relative;
+  margin-top: 90px;
+
 }
 
 th {
   text-align: left;
 }
 
- ul {
-  list-style-type: none;
- }
-
 #nav {
   width: 100%;
-  background-color: #000;
-  position: fixed;
+  background-color: blue;
   top: 0;
+  position: fixed;
+  list-style-type: none;
+  padding-left: 0;
+  margin-left: 0;
 }
 
 
+#nav li {
+  margin: 0;
+}
 
+/*#nav li a {
+  list-style-type: none;
+  margin: 0;
+  display: block;
+  margin-right: 15px;
+  text-decoration: none;
 
+}
+*/
+
+ul {
+  list-style-type: none;
+}
