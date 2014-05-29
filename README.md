@@ -13,3 +13,8 @@ A drawing and telling game.
 * more advanced drawing tools
 * notifications
 * turn lagging
+
+##Team
+* Beverly Mah
+* Stephen Roth
+* Pei Xiong Liu
