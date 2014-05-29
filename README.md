@@ -3,4 +3,4 @@ whats-this
 
 A drawing and telling game.
 
-![Alt text](http://min.us/i/4bJfdVycKfKv)
+![Alt text](http://i.minus.com/i4bJfdVycKfKv.png)
