@@ -3,7 +3,24 @@
   width: 600px;
   padding: 0px 20px 20px 20px;
   border: 1px dotted black;
+  position: relative;
 }
+
 th {
   text-align: left;
 }
+
+ ul {
+  list-style-type: none;
+ }
+
+#nav {
+  width: 100%;
+  background-color: #000;
+  position: fixed;
+  top: 0;
+}
+
+
+
+

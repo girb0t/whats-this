@@ -9,7 +9,12 @@ end
 
 post '/login' do
   # AUTHENTICATE USER
-  redirect '/users/profile'
+  user = User.find_by_username(params[:username])
+  if user && user.authenticate(params[:password])
+    redirect '/users/profile'
+  else
+
+  end
 end
 
 get '/logout' do
