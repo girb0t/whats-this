@@ -1,3 +1,8 @@
 class Description < ActiveRecord::Base
-  # Remember to create a migration!
+  validates :body, presence: :true
+  validates :drawing_id, uniqueness: :true
+  belongs_to :user
+  belongs_to :drawing
+  belongs_to :game
+  has_one :drawing
 end
