@@ -39,6 +39,7 @@ get '/games/:id' do
 	  erb :completed_game
 	else
 		redirect '/'
+	end
 end
 
 get '/games/:id/play' do
