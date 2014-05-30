@@ -1,4 +1,6 @@
 get '/' do
+  @recent_drawings = Drawing.last(2)
+  @recent_descriptions = Description.last(4)
   erb :index
 end
 
