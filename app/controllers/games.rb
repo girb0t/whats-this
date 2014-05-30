@@ -20,15 +20,14 @@ end
 
 get '/games/inprogress' do
 ######## SWITCH ON PAGE WHERE OPTIONS: ALL, PICTURES, DESCRIPTIONS
-	@games_in_progress = Game.where(is_complete: false)
-
 # Shows list of all games in progress
+	@games_in_progress = Game.where(is_complete: false)
   erb :games_in_progress
 end
 
 get '/games/archive' do
-	@archived_games = Game.where(is_complete: true)
 # Shows list of completed games
+	@archived_games = Game.where(is_complete: true)
   erb :archived_games
 end
 
