@@ -1,34 +1,16 @@
-<div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, world!</p>
+<h3>Recent Pictures</h3>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+<div>
+  <% @recent_drawings.each do |drawing| %>
+    <a href="/games/#{drawing.game_id}/play"><%= drawing.picture %></a>
+  <% end %><br><br>
+</div>
 
 
-  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc convallis ante venenatis, ultricies justo id, dictum urna. Morbi tincidunt tempus consequat. Mauris quam lacus, faucibus sit amet sapien sed, ultrices volutpat tortor. Donec condimentum dictum magna ac sodales. Ut suscipit, neque nec lobortis accumsan, velit ipsum suscipit felis, et interdum nisl felis vitae est. Fusce et consequat enim. Proin lobortis tortor vel auctor placerat. Nullam aliquam, massa vel convallis condimentum, dui tellus laoreet ipsum, id volutpat velit tellus et elit. Phasellus orci nibh, lacinia eget sodales sit amet, vestibulum eu enim.
+<h3>Recent Descriptions</h3>
 
-Fusce pellentesque pretium ligula sit amet malesuada. Aenean ornare eros id aliquet rhoncus. Suspendisse vehicula suscipit diam, eget pharetra erat tincidunt quis. Aenean quis tincidunt leo. Phasellus varius vulputate quam, non congue lacus lobortis id. Maecenas vel est varius, sagittis sapien vitae, consequat velit. Maecenas orci felis, lacinia eu urna ut, tincidunt scelerisque arcu. Nullam varius ligula ut ipsum tempus mollis. Cras convallis tellus risus, vitae viverra velit feugiat iaculis. Fusce mi odio, suscipit eget vehicula nec, tincidunt a libero. Cras a ante vel felis ullamcorper faucibus vitae eget nisi. Suspendisse eget odio fringilla, interdum tellus vitae, gravida urna. In laoreet ornare luctus. Duis tempus et eros sit amet vulputate.
-
-Morbi nec tristique elit. Vivamus molestie ac tortor a dictum. Nulla rutrum nec nibh vel facilisis. Nulla erat elit, consequat et dapibus id, vehicula ac dui. Integer cursus porta elit, ac placerat felis hendrerit quis. Sed non enim rhoncus nisi posuere porta. Suspendisse non gravida lorem, eu congue justo. Fusce luctus sapien nisi, et consectetur quam interdum quis.
-
-Praesent vitae egestas nisi, ut faucibus arcu. Suspendisse potenti. Aenean placerat massa quis augue venenatis, a bibendum mi vulputate. Aliquam lorem quam, dignissim eu fringilla eget, pretium vel felis. Donec posuere velit nec lorem porttitor feugiat. Donec id ante ut tortor adipiscing dignissim id quis nisl. Sed dictum facilisis gravida. Suspendisse potenti. Phasellus id odio urna. Fusce id blandit neque. Aenean ligula dolor, facilisis sed urna ut, scelerisque volutpat felis. Ut varius euismod nibh eu consequat.
-
-Etiam quis purus pretium, auctor urna quis, faucibus massa. Morbi facilisis laoreet mattis. Donec ac risus metus. Vivamus vestibulum convallis aliquet. Etiam at tortor convallis lorem fermentum cursus id sit amet quam. Sed semper orci sit amet porttitor rhoncus. Ut mi nibh, imperdiet non orci et, scelerisque sodales quam. Vivamus non tortor commodo ipsum pulvinar congue vel lacinia massa. Aliquam consectetur tortor quis dui fringilla ultrices. Cras vestibulum egestas tortor, non tincidunt orci. Duis fermentum purus enim, hendrerit sodales lacus malesuada nec. Ut accumsan diam at turpis sollicitudin consectetur.</p>
+<div>
+  <% @recent_descriptions.each do |description| %>
+    <a href="/games/#{description.game_id}/play"><%= description.body %></a>
+  <% end %><br><br>
 </div>
