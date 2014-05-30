@@ -32,8 +32,9 @@ get '/users/createdgames' do
 end
 
 get '/users/playedgames' do
-	users_played_games = Drawing.all.find_by_user_id(session[:user_id])
-	users_played_games << Description.all.find_by_user_id(session[:user_id])
+	users_played_games = Drawing.where(user_id: session[:user_id])
+	users_played_games << Description.where(user_id: session[:user_id])
+	@users_played_games.flatten!
 	@user_played_game_ids = []
 
 	users_played_games.each do |game_part|
