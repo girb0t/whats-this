@@ -32,14 +32,16 @@ get '/users/createdgames' do
 end
 
 get '/users/playedgames' do
-	users_played_games = Drawing.where(user_id: session[:user_id])
-	users_played_games << Description.where(user_id: session[:user_id])
-	@users_played_games.flatten!
+	@users_game_parts = Drawing.where(user_id: session[:user_id])
+	@users_game_parts << Description.where(user_id: session[:user_id])
+	@users_game_parts.flatten!
+###### REMOVE ALL DUPLICATE GAMES
 	@user_played_game_ids = []
 
-	users_played_games.each do |game_part|
+	@users_game_parts.each do |game_part|
 		@user_played_game_ids << game_part.game_id
 	end
+	@users_played_game_id.uniq!
 # List of all games played by user.
   erb :played_games
 end
