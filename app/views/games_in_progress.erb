@@ -1,1 +1,7 @@
+<h3>Games In Progress</h3>
 
+<div>	
+	<% @games_in_progress.each do |game| %>
+	  <a href="/games/#{game.id}/play">Game <%= game.id %> created by <%= User.find(game.user_id).username %></a><br>
+	<% end %>
+</div>
