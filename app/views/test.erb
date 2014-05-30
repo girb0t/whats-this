@@ -1,0 +1,6 @@
+<h3>Game created by <%= @user.username %></h3>
+
+<% @pictures.each do |p| %>
+  <div><%= p.picture %></div>
+  <p>Drawing by <%= p.user.username %></p>
+<% end %>
