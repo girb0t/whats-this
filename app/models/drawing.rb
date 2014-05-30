@@ -1,6 +1,6 @@
 class Drawing < ActiveRecord::Base
   validates :picture, presence: :true
-  validates :description_id, uniqueness: :true
+  validates :description_id, uniqueness: :true, :allow_nil => true
   belongs_to :description
   belongs_to :game
   belongs_to :user
