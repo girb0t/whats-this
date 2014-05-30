@@ -20,8 +20,8 @@ post '/login' do
   if user && user.authenticate(params[:password])
     redirect '/'
   else
-    redirect '/'
     session[:last_error] = "There was a problem logging in. Please try again."
+    redirect '/'
   end
 end
 
