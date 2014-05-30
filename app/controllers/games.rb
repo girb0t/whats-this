@@ -29,7 +29,7 @@ get '/games/:id/draw' do
 end
 
 post '/games/:id/draw' do
-	drawing = Drawing.new(svg_file: PICTURE INFO GOES HERE!!!!!!, game_id: params[:id], user_id: session[:user_id], description_id: DESCRIPTION)
+	drawing = Drawing.new(picture: params[:sketch], game_id: params[:id], user_id: session[:user_id], description_id: params[:description_id])
 	drawing.save
 # Adds drawing to database
   redirect '/games/inprogress'
@@ -43,7 +43,7 @@ get '/games/:id/describe' do
 end
 
 post '/games/:id/describe' do
-	description = Description.new(svg_file: PICTURE INFO GOES HERE!!!!!!, game_id: params[:id], user_id: session[:user_id], drawing_id: DRAWING)
+	description = Description.new(body: params[:description], game_id: params[:id], user_id: session[:user_id], drawing_id: params[:drawing_id])
 	description.save
 # Adds description to database
   redirect '/games/inprogress'

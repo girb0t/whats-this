@@ -20,7 +20,7 @@ post '/login' do
   if user && user.authenticate(params[:password])
     redirect '/users/profile'
   else
-
+    redirect '/'
   end
 end
 
