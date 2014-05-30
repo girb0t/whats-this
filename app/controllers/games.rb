@@ -1,15 +1,35 @@
+get '/mygames' do
+	@user = User.find(session[:user_id])
+	@games = @user.games
+
+	@user_game_parts = Drawing.where(user_id: @user.id)
+	@user_game_parts << Description.where(user_id: @user.id)
+	@user_game_parts.flatten!
+
+	@user_played_game_ids = []
+	@user_game_parts.each do |game_part|
+		@user_played_game_ids << game_part.game_id
+	end
+	@user_played_game_id.uniq!
+	@user_played_games = Game.where(id: @user_played_game_id)
+	erb :my_games
+  # erb :played_games
+  # erb :created_games
+# List of all games played by user.
+end
+
 get '/games/inprogress' do
 ######## SWITCH ON PAGE WHERE OPTIONS: ALL, PICTURES, DESCRIPTIONS
 	@games_in_progress = Game.where(is_complete: false)
 
 # Shows list of all games in progress
-  erb :incomplete_games
+  erb :games_in_progress
 end
 
 get '/games/archive' do
 	@archived_games = Game.where(is_complete: true)
 # Shows list of completed games
-  erb :finished_games
+  erb :archived_games
 end
 
 get '/games/:id' do
@@ -27,7 +47,6 @@ get '/games/:id/play' do
 	@game = Game.find(params[:id])
 	@description = Description.where(game_id: params[:id]).last
 	@drawing = Drawing.where(game_id: params[:id]).last
-# add drawing to selected game
   erb :play
 end
 
