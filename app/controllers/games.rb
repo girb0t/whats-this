@@ -1,5 +1,6 @@
 get '/games/inprogress' do
 	@games_in_progress = Game.where(is_complete: false)
+
 # Shows list of all games in progress
   erb :incomplete_games
 end
@@ -18,7 +19,7 @@ get '/games/:id' do
 	  erb :completed_game
 	else
 		redirect # TO APPROPRIATE GET REQUEST, DEPENDING ON
-						 # MOST RECENT GAME INPUT (DRAWING OR DESCRIPTION)
+	end					 # MOST RECENT GAME INPUT (DRAWING OR DESCRIPTION)
 end
 
 get '/games/:id/draw' do
