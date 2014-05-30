@@ -13,7 +13,7 @@ gem 'thin'
 gem 'activesupport'
 gem 'activerecord'
 gem 'bcrypt'
-
+gem 'bcrypt-ruby'
 gem 'rake'
 
 gem 'shotgun'
