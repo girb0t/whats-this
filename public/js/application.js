@@ -1,7 +1,18 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  
+	$('#signup').hide();
+	$('#login').hide();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
-});
+	$('#signup_btn').on('click', function(e){
+		e.preventDefault();
+		$('#login').hide();
+		$('#signup').slideDown(500);
+		console.log('yes')
+	})
+
+	$('#login_btn').on('click', function(e) {
+		e.preventDefault();
+		$('#signup').hide();
+		$('#login').slideDown(500);
+	})
+ })

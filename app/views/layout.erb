@@ -11,20 +11,62 @@
     application.css is where you put your styles
   -->
   <link rel="stylesheet" href="/css/application.css">
+  <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,800' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
 
-  <title></title>
+  <title>what's this?!</title>
 </head>
+
+<div id="top-bar">
+
+  <% if session[:user_id] %>
+  <nav>
+    <ul>
+      <li><a id="signup_btn" href="/">create</a></li>
+      <li><a id="login_btn" href="/">my games</a></li>
+      <li><a id="login_btn" href="/">play</a></li>
+      <li><a id="login_btn" href="/">archive</a></li>
+    </ul>
+  </nav>
+
+  <% else %>
+  <nav>
+    <ul>
+
+      <li><a id="signup_btn" href="/">sign up</a></li>
+      <li><a id="login_btn" href="/">log in</a></li>
+    </ul>
+
+    <form id = "signup" action="/" method="POST">
+      <input type="text" placeholder="username" name="username">
+      <input type="password" placeholder="password" name="password">
+      <input type="submit" value="sign up">
+    </form>
+
+    <form id = "login" action="/" method="POST">
+      <input type="text" placeholder="username" name="username">
+      <input type="password" placeholder="password" name="password">
+      <input type="submit" value="log in">
+    </form>
+  </nav>
+
+  <% end %>
+
+
+
+
+
+
+</div>
 <body>
 
- <div id="nav">
-    <ul>
-      <li><a href="/">sign up</li>
-      <li><a href="/">log in</li>
-    </ul>
-  </div>
+
+
+
+
   <%= yield %>
 </body>
 </html>
