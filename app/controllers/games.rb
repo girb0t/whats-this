@@ -24,7 +24,7 @@ end
 
 get '/games/:id/draw' do
 	@game = Game.find(params[:id])
-	@description = Description.find_by_game(params[:id]).last
+	@description = Description.where(game_id: params[:id]).last
 # add drawing to selected game
   erb :draw
 end
@@ -38,7 +38,7 @@ end
 
 get '/games/:id/describe' do
 	@game = Game.find(params[:id])
-	@drawing = Drawing.find_by_game(params[:id]).last
+	@drawing = Drawing.where(game_id: params[:id]).last
 # Add a description to a game. Will this be done on the main page?
   erb :describe
 end
