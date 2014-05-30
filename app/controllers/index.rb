@@ -7,7 +7,7 @@ post '/signup' do
   user = User.new(username: params[:username], password_digest: params[:password])
   if user.save
     session[:user_id] = user.id
-    redirect '/users/profile'
+    redirect '/'
   else
     # Error message should check to see if user exists
     session[:last_error] = "There was a problem creating new user."
@@ -18,9 +18,10 @@ end
 post '/login' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
-    redirect '/users/profile'
+    redirect '/'
   else
     redirect '/'
+    session[:last_error] = "There was a problem logging in. Please try again."
   end
 end
 
