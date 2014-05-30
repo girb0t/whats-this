@@ -1,4 +1,5 @@
 get '/games/inprogress' do
+######## SWITCH ON PAGE WHERE OPTIONS: ALL, PICTURES, DESCRIPTIONS
 	@games_in_progress = Game.where(is_complete: false)
 
 # Shows list of all games in progress
@@ -18,8 +19,8 @@ get '/games/:id' do
 # shows a completed game
 	  erb :completed_game
 	else
-		redirect # TO APPROPRIATE GET REQUEST, DEPENDING ON
-	end					 # MOST RECENT GAME INPUT (DRAWING OR DESCRIPTION)
+		redirect '/'# TO APPROPRIATE GET REQUEST, DEPENDING ON
+	end					  # MOST RECENT GAME INPUT (DRAWING OR DESCRIPTION)
 end
 
 get '/games/:id/draw' do
@@ -33,7 +34,7 @@ post '/games/:id/draw' do
 	drawing = Drawing.new(picture: params[:sketch], game_id: params[:id], user_id: session[:user_id], description_id: params[:description_id])
 	drawing.save
 # Adds drawing to database
-  redirect '/games/inprogress'
+  redirect '/'
 end
 
 get '/games/:id/describe' do
@@ -47,6 +48,6 @@ post '/games/:id/describe' do
 	description = Description.new(body: params[:description], game_id: params[:id], user_id: session[:user_id], drawing_id: params[:drawing_id])
 	description.save
 # Adds description to database
-  redirect '/games/inprogress'
+  redirect '/'
 end
 
