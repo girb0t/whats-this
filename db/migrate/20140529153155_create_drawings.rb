@@ -4,7 +4,7 @@ class CreateDrawings < ActiveRecord::Migration
       t.belongs_to :user
       t.belongs_to :game
       t.belongs_to :description
-      t.string :svg_file
+      t.binary :picture
 
       t.timestamps
     end

@@ -1,5 +1,5 @@
 class Drawing < ActiveRecord::Base
-  validates :svg_file, presence: :true
+  validates :picture, presence: :true
   validates :description_id, uniqueness: :true
   belongs_to :description
   belongs_to :game
