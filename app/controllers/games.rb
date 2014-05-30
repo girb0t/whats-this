@@ -5,8 +5,8 @@ get '/games/inprogress' do
   erb :incomplete_games
 end
 
-get '/games/completed' do
-	@finished_games = Game.where(is_complete: true)
+get '/games/archive' do
+	@archived_games = Game.where(is_complete: true)
 # Shows list of completed games
   erb :finished_games
 end
