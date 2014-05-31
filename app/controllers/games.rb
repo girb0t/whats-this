@@ -18,6 +18,15 @@ get '/mygames' do
 # List of all games played by user.
 end
 
+get '/new' do
+  if session[:user_id]
+    erb :new_game
+  else
+    @error = "Must be logged in to create new game"
+    erb :error
+  end
+end
+
 get '/games/inprogress' do
 ######## SWITCH ON PAGE WHERE OPTIONS: ALL, PICTURES, DESCRIPTIONS
 # Shows list of all games in progress
@@ -72,15 +81,35 @@ end
 
 post '/draw' do
 # Adds drawing to database
-	drawing = Drawing.new(picture: params["svg"], game_id: session[:game_id], user_id: session[:user_id], description_id: session[:last_description_id])
-	drawing.save
-  redirect '/'
+  if session[:game_id]
+  	drawing = Drawing.new(picture: params["svg"], game_id: session[:game_id], user_id: session[:user_id], description_id: session[:last_description_id])
+  	drawing.save
+    session.delete(:game_id)
+    session.delete(:last_description_id)
+    redirect '/'
+  else #this is a new game
+    game = Game.new(user_id: session[:user_id])
+    game.save
+    drawing = Drawing.new(picture: params["svg"], game_id: game.id, user_id: session[:user_id], description_id: nil)
+    drawing.save
+    redirect '/'
+  end
 end
 
 post '/describe' do
 # Adds description to database
-	description = Description.new(body: params[:description], game_id: session[:game_id], user_id: session[:user_id], drawing_id: session[:last_picture_id])
-	description.save
-  redirect '/'
+  if session[:game_id]
+  	description = Description.new(body: params[:description], game_id: session[:game_id], user_id: session[:user_id], drawing_id: session[:last_picture_id])
+  	description.save
+    session.delete(:game_id)
+    session.delete(:last_picture_id)
+    redirect '/'
+  else
+    game = Game.new(user_id: session[:user_id])
+    game.save
+    description = Description.new(body: params[:description], game_id: game.id, user_id: session[:user_id], drawing_id: nil)
+    description.save
+    redirect '/'
+  end
 end
 
