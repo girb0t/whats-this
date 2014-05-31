@@ -3,13 +3,31 @@ class Game < ActiveRecord::Base
   has_many :drawings
   has_many :descriptions
 
-  def get_game_elements
-  	game_parts = Drawing.where(game_id: self.id)
-  	game_parts << Description.where(game_id: self.id)
-  	game_parts.flatten!
+  def check_finished
+    if self.get_game_elements.count >= 20
+      self.update_attribute("is_complete", true)
+    end
+  end
 
-  	@sorted_game_parts = game_parts.sort_by &:created_at
+  def get_game_elements
+  	game_elements = Drawing.where(game_id: self.id)
+  	game_elements << Description.where(game_id: self.id)
+  	game_elements.flatten!
+
+  	@sorted_game_elements = game_elements.sort_by &:created_at
   end	
+
+  def get_timeline
+    game_elements = get_game_elements
+    game_elements.map! do |element|
+      if element.class == Drawing
+        element.picture
+      else
+        element.body
+      end
+    end
+    game_elements
+  end
 
   def get_last_game_element
     get_game_elements.pop

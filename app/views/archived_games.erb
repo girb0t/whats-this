@@ -2,6 +2,6 @@
 
 <div>	
 	<% @archived_games.each do |game| %>
-	  <a href="/games/#{game.id}/play">Game <%= game.id %> created by <%= User.find(game.user_id).username %></a><br>
+	  <a href="/games/<%= game.id %>">Game <%= game.id %> created by <%= User.find(game.user_id).username %></a><br>
 	<% end %>
 </div>
