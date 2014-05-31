@@ -1,21 +1,14 @@
 get '/mygames' do
-	@user = User.find(session[:user_id])
-	@games = @user.games
-
-	@user_game_parts = Drawing.where(user_id: @user.id)
-	@user_game_parts << Description.where(user_id: @user.id)
-	@user_game_parts.flatten!
-
-	@user_played_game_ids = []
-	@user_game_parts.each do |game_part|
-		@user_played_game_ids << game_part.game_id
-	end
-	@user_played_game_id.uniq!
-	@user_played_games = Game.where(id: @user_played_game_id)
-	erb :my_games
-  # erb :played_games
-  # erb :created_games
 # List of all games played by user.
+  if session[:user_id]
+    @user = User.find(session[:user_id])
+    @user_created_game_first_elements = get_first_elements(@user.get_created_games)
+    @user_participated_game_first_elements = get_first_elements(@user.get_participated_games)
+    erb :my_games
+  else
+    @error = "Must be logged in to view 'mygames'"
+    erb :error
+  end
 end
 
 get '/new' do
@@ -82,8 +75,11 @@ end
 post '/draw' do
 # Adds drawing to database
   if session[:game_id]
-  	drawing = Drawing.new(picture: params["svg"], game_id: session[:game_id], user_id: session[:user_id], description_id: session[:last_description_id])
+    game = Game.find(session[:game_id])
+  	drawing = Drawing.new(picture: params["svg"], game_id: game.id, user_id: session[:user_id], description_id: session[:last_description_id])
   	drawing.save
+    game.check_finished
+
     session.delete(:game_id)
     session.delete(:last_description_id)
     redirect '/'
