@@ -1,18 +1,20 @@
-<input class="color">
-
 <h3>Recent Pictures</h3>
 
-<div>
+<div class='picture-list'>
   <% @recent_drawings.each do |drawing| %>
-    <a href="/games/#{drawing.game_id}/play"><%= drawing.picture %></a>
+    <div class='picture-frame'>
+      <a href="/games/<%= drawing.game_id %>/play"><%= drawing.picture %></a>
+    </div>
   <% end %><br><br>
 </div>
 
 
-<h3>Recent Descriptions</h3>
 
-<div>
+<div class='description-list'>
+  <h3>Recent Descriptions</h3>
   <% @recent_descriptions.each do |description| %>
-    <a href="/games/#{description.game_id}/play"><%= description.body %></a>
+    <div class='description'>
+      <a href="/games/<%= description.game_id %>/play"><%= description.body %></a>
+    </div>
   <% end %><br><br>
 </div>

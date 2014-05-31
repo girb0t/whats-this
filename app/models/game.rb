@@ -15,4 +15,28 @@ class Game < ActiveRecord::Base
     get_game_elements.pop
   end
 
+
+  def self.get_all_last_drawings
+    last_drawings = []
+    self.all.each do |game|
+      if game.get_last_game_element.class == Drawing
+        last_drawings << game.get_last_game_element
+      end
+    end
+    last_drawings = last_drawings.sort_by &:created_at
+    last_drawings.reverse
+  end  
+
+  def self.get_all_last_descriptions
+    last_descriptions = []
+    self.all.each do |game|
+      if game.get_last_game_element.class == Description
+        last_descriptions << game.get_last_game_element
+      end
+    end
+    last_descriptions = last_descriptions.sort_by &:created_at
+    last_descriptions.reverse
+  end
+
+
 end
