@@ -3,7 +3,7 @@ get '/mygames' do
   if session[:user_id]
     @user = User.find(session[:user_id])
     @user_created_game_first_elements = get_first_elements(@user.get_created_games)
-    @user_participated_game_first_elements = get_first_elements(@user.get_participated_games)
+    @user_contributions = @user.get_participated_games_contributions
     erb :my_games
   else
     @error = "Must be logged in to view 'mygames'"
