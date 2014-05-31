@@ -1,4 +1,7 @@
 
+body {
+
+}
 .container {
   margin-top: 65px;
   max-width: 1000px;
@@ -61,7 +64,16 @@ nav input[type="submit"] {
 
 /*CANVAS*/
 
+.picture-list {
+
+}
+
+.description-list {
+  clear: left;
+}
+
 .canvas-area, .picture-frame {
+  float: left;
   border: 1px solid black;
   width: 400px;
   height: 400px;
