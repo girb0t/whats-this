@@ -36,10 +36,12 @@ end
 get '/games/:id' do
 ########### VIEW COMPLETED CHAIN
 	@game = Game.find(params[:id])
+  @timeline = @game.get_timeline
 	if @game.is_complete
 	  erb :completed_game
 	else
-		redirect '/'
+    @error = "Can't view timeline of incomplete game!"
+    erb :error
 	end
 end
 
@@ -95,8 +97,11 @@ end
 post '/describe' do
 # Adds description to database
   if session[:game_id]
-  	description = Description.new(body: params[:description], game_id: session[:game_id], user_id: session[:user_id], drawing_id: session[:last_picture_id])
+    game = Game.find(session[:game_id])
+  	description = Description.new(body: params[:description], game_id: game.id, user_id: session[:user_id], drawing_id: session[:last_picture_id])
   	description.save
+    game.check_finished
+
     session.delete(:game_id)
     session.delete(:last_picture_id)
     redirect '/'
