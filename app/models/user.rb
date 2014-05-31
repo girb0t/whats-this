@@ -34,6 +34,18 @@ class User < ActiveRecord::Base
     Description.where(user_id: self.id)
   end
 
+  def get_participated_games_contributions
+    contributions = get_all_drawings + get_all_descriptions
+    contributions.map! do |element|
+      if element.class == Drawing && element.description_id
+        element.picture
+      elsif element.class == Description && element.drawing_id
+        element.body
+      end
+    end
+    contributions
+  end
+
   # def get_all_first_drawings
   #   user_first_drawings = []
   #   all_drawings = self.get_all_drawings
