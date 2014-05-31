@@ -7,7 +7,6 @@ $(document).ready(function() {
 		e.preventDefault();
 		$('#login').hide();
 		$('#signup').slideDown(500);
-		console.log('yes')
 	})
 
 	$('#login_btn').on('click', function(e) {
@@ -24,4 +23,12 @@ $(document).ready(function() {
               console.log('done');
       });
   })
+
+  $('.tab li').click(function(e) {
+    var index = $(this).index();
+    $('.tab li').removeClass("active");
+    $(this).addClass("active");
+    $('.tab-pages div').hide();
+    $(".tab-pages div:nth-child(" + (index + 1) + ")").show();
+  });
  })

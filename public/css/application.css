@@ -1,24 +1,35 @@
 
 body {
-
-}
-.container {
-  margin-top: 65px;
   max-width: 1000px;
+}
+
+.container {
+  margin: auto;
+  width: 100%;
+  min-height: 700px;
+  padding-top: 65px;
   border: 1px dotted black;
   font-family: open sans;
+  position: absolute;
 }
+
+.hidden {
+  display: none;
+}
+
 
 /*TOP BAR*/
 
 #top-bar {
   width: 100%;
+  min-width: 760px;
   height: 65px;
   background-color: #00bfab;
   top: 0;
   position: fixed;
   font-family: open sans;
   float: left;
+  z-index: 1;
 }
 
 nav {
@@ -33,6 +44,7 @@ nav ul {
 
 nav li {
   float: left;
+  position: relative;
 }
 
 nav li a {
@@ -65,7 +77,7 @@ nav input[type="submit"] {
 /*CANVAS*/
 
 .picture-list {
-
+margin-left: 20px;  
 }
 
 .description-list {
@@ -80,3 +92,50 @@ nav input[type="submit"] {
   overflow: hidden;
   position: relative;
 }
+
+.picture-frame {
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* SWITCH */
+
+.tab {
+  text-align: center;
+  width: 100%;
+}
+
+.tab ul{
+  width: 27%;
+  margin: 0 auto;
+  padding-left: 0;
+}
+
+.tab ul li {
+  background-color: lightgray;
+  float: left;
+  display: block;
+  text-decoration: none;
+  line-height: 40px;
+  padding: 0 20px;
+  font-weight: bold;
+  cursor: pointer;
+  cursor: hand;
+}
+
+.tab li:first-child {
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+}
+
+.tab li:last-child {
+  border-bottom-right-radius: 10px;
+  border-top-right-radius: 10px;
+  border-left: 1px solid white;
+}
+
+.tab .active {
+  background-color: gray;
+  color: white;
+}
+

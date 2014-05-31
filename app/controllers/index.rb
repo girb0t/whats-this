@@ -7,7 +7,7 @@ end
 post '/signup' do
   # CREATE NEW USER
   user = User.new(username: params[:username], password_digest: params[:password])
-  if user.save
+  if user.save  
     session[:user_id] = user.id
     redirect '/'
   else

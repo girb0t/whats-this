@@ -19,11 +19,11 @@
     <% if session[:user_id] %>
       <nav>
         <ul>
-          <li><a id="signup_btn" href="/">create</a></li>
-          <li><a id="login_btn" href="/">my games</a></li>
-          <li><a id="login_btn" href="/">play</a></li>
-          <li><a id="login_btn" href="/games/archive">archive</a></li>
-          <li><a id="login_btn" href="/logout">logout(<%= session[:username] %>)</a></li>
+          <li><a href="/new">start new game</a></li>
+          <li><a href="/mygames">my games</a></li>
+          <li><a href="/">play</a></li>
+          <li><a href="/games/archive">archive</a></li>
+          <li><a href="/logout">logout(<%= session[:username] %>)</a></li>
         </ul>
       </nav>
     <% else %>

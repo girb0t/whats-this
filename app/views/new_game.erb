@@ -1,0 +1,23 @@
+<h3>Create New Game</h3>
+
+<div class='tab'>
+  <ul>
+    <li class='active'>Draw</li>
+    <li>Write</li>
+  </ul>
+</div>
+
+<br>
+
+<div class='tab-pages'>
+  <div>
+    <h3>Draw it!</h3>
+    <%= erb :_canvas %>
+  </div>
+  
+  <div class='hidden'>
+    <h3>Write it!</h3>
+    <%= erb :_describe_form %>
+  </div>
+
+</div>
