@@ -19,55 +19,41 @@
 
   <title>what's this?!</title>
 </head>
-
-<div id="top-bar">
-
-  <% if session[:user_id] %>
-  <nav>
-    <ul>
-      <li><a id="signup_btn" href="/">create</a></li>
-      <li><a id="login_btn" href="/">my games</a></li>
-      <li><a id="login_btn" href="/">play</a></li>
-      <li><a id="login_btn" href="/games/archive">archive</a></li>
-    </ul>
-  </nav>
-
-  <% else %>
-  <nav>
-    <ul>
-
-      <li><a id="signup_btn" href="/signup">sign up</a></li>
-      <li><a id="login_btn" href="/login">log in</a></li>
-      <li><a href="/games/archive">archive</a></li>
-    </ul>
-
-    <form id = "signup" action="/signup" method="POST">
-      <input type="text" placeholder="username" name="username">
-      <input type="password" placeholder="password" name="password">
-      <input type="submit" value="sign up">
-    </form>
-
-    <form id = "login" action="/login" method="POST">
-      <input type="text" placeholder="username" name="username">
-      <input type="password" placeholder="password" name="password">
-      <input type="submit" value="log in">
-    </form>
-  </nav>
-
-  <% end %>
-
-
-
-
-
-
-</div>
 <body>
+<div id="top-bar">
+  <% if session[:user_id] %>
+    <nav>
+      <ul>
+        <li><a id="signup_btn" href="/">create</a></li>
+        <li><a id="login_btn" href="/">my games</a></li>
+        <li><a id="login_btn" href="/">play</a></li>
+        <li><a id="login_btn" href="/games/archive">archive</a></li>
+      </ul>
+    </nav>
+  <% else %>
+    <nav>
+      <ul>
+        <li><a id="signup_btn" href="/signup">sign up</a></li>
+        <li><a id="login_btn" href="/login">log in</a></li>
+        <li><a href="/games/archive">archive</a></li>
+      </ul>
 
+      <form id = "signup" action="/signup" method="POST">
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <input type="submit" value="sign up">
+      </form>
 
-
-
-
+      <form id = "login" action="/login" method="POST">
+        <input type="text" placeholder="username" name="username">
+        <input type="password" placeholder="password" name="password">
+        <input type="submit" value="log in">
+      </form>
+    </nav>
+  <% end %>
+</div>
+<div class='container'>
   <%= yield %>
+</div>
 </body>
 </html>
