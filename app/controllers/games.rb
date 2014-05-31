@@ -43,30 +43,43 @@ end
 
 get '/games/:id/play' do
 ############ NEXT MOVE IN A GAME. POSSIBLE BETTER WORD CHOICE.
-############ NEED METHOD IN GAME MODEL TO FETCH LAST GAME PART.
-	@game = Game.find(params[:id])
-	@description = Description.where(game_id: params[:id]).last
-	@drawing = Drawing.where(game_id: params[:id]).last
-  erb :play
+  session[:game_id] = params[:id]
+  game = Game.find(session[:game_id])
+  last_game_element = game.get_last_game_element
+  if last_game_element.class == Drawing
+    puts '*' * 60
+    redirect '/describe'
+  else
+    puts '#' * 60
+    p 
+    redirect '/draw'
+  end
 end
 
-post '/games/:id/draw' do
+get '/describe' do
+  @game = Game.find(session[:game_id])
+  @last_picture = @game.get_last_game_element
+  session[:last_picture_id] = @last_picture.id
+  erb :describe
+end
+
+get '/draw' do
+  @game = Game.find(session[:game_id])
+  @last_description = @game.get_last_game_element
+  session[:last_description_id] = @last_description.id
+  erb :draw
+end
+
+post '/draw' do
 # Adds drawing to database
-	drawing = Drawing.new(picture: params[:sketch], game_id: params[:id], user_id: session[:user_id], description_id: params[:description_id])
+	drawing = Drawing.new(picture: params["svg"], game_id: session[:game_id], user_id: session[:user_id], description_id: session[:last_description_id])
 	drawing.save
   redirect '/'
 end
 
-# get '/games/:id/describe' do
-# 	@game = Game.find(params[:id])
-# 	@drawing = Drawing.where(game_id: params[:id]).last
-# # Add a description to a game. Will this be done on the main page?
-#   erb :describe
-# end
-
-post '/games/:id/describe' do
+post '/describe' do
 # Adds description to database
-	description = Description.new(body: params[:description], game_id: params[:id], user_id: session[:user_id], drawing_id: params[:drawing_id])
+	description = Description.new(body: params[:description], game_id: session[:game_id], user_id: session[:user_id], drawing_id: session[:last_picture_id])
 	description.save
   redirect '/'
 end
