@@ -6,9 +6,10 @@ end
 
 post '/signup' do
   # CREATE NEW USER
-  user = User.new(username: params[:username], password_digest: params[:password])
+  user = User.new(username: params[:username], password: params[:password], password_confirmation: params[:password])
   if user.save  
     session[:user_id] = user.id
+    session[:username] = user.username
     redirect '/'
   else
     # Error message should check to see if user exists
