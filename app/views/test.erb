@@ -1,6 +1,4 @@
-<h3>Game created by <%= @user.username %></h3>
-
-<% @pictures.each do |p| %>
-  <div><%= p.picture %></div>
-  <p>Drawing by <%= p.user.username %></p>
-<% end %>
+<input class="color">
+<div class='canvas-area'>
+  <canvas id="myCanvas" resize></canvas>
+</div>

@@ -1,59 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!--
-    normalize.css removes cross-browser differences in defaults, e.g.,
-    differences in how form elements appear between Firefox and IE
-    See: http://necolas.github.com/normalize.css/
-  -->
   <link rel="stylesheet" href="/css/normalize.css">
-  <!--
-    application.css is where you put your styles
-  -->
   <link rel="stylesheet" href="/css/application.css">
   <link href='http://fonts.googleapis.com/css?family=Dosis:300,400' rel='stylesheet' type='text/css'>
   <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,700,800' rel='stylesheet' type='text/css'>
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
   <script src="/js/application.js"></script>
+  <script type="text/javascript" src="js/paper-full.js"></script>
+  <script type="text/paperscript" src="js/myPaperScript.js" canvas="myCanvas"></script>
+  <script type="text/javascript" src="jscolor/jscolor.js"></script>
 
   <title>what's this?!</title>
 </head>
 <body>
-<div id="top-bar">
-  <% if session[:user_id] %>
-    <nav>
-      <ul>
-        <li><a id="signup_btn" href="/">create</a></li>
-        <li><a id="login_btn" href="/">my games</a></li>
-        <li><a id="login_btn" href="/">play</a></li>
-        <li><a id="login_btn" href="/games/archive">archive</a></li>
-      </ul>
-    </nav>
-  <% else %>
-    <nav>
-      <ul>
-        <li><a id="signup_btn" href="/signup">sign up</a></li>
-        <li><a id="login_btn" href="/login">log in</a></li>
-        <li><a href="/games/archive">archive</a></li>
-      </ul>
+  <div id="top-bar">
+    <% if session[:user_id] %>
+      <nav>
+        <ul>
+          <li><a id="signup_btn" href="/">create</a></li>
+          <li><a id="login_btn" href="/">my games</a></li>
+          <li><a id="login_btn" href="/">play</a></li>
+          <li><a id="login_btn" href="/games/archive">archive</a></li>
+          <li><a id="login_btn" href="/logout">logout(<%= session[:username] %>)</a></li>
+        </ul>
+      </nav>
+    <% else %>
+      <nav>
+        <ul>
+          <li><a id="signup_btn" href="/signup">sign up</a></li>
+          <li><a id="login_btn" href="/login">log in</a></li>
+          <li><a href="/games/archive">archive</a></li>
+        </ul>
 
-      <form id = "signup" action="/signup" method="POST">
-        <input type="text" placeholder="username" name="username">
-        <input type="password" placeholder="password" name="password">
-        <input type="submit" value="sign up">
-      </form>
+        <form id = "signup" action="/signup" method="POST">
+          <input type="text" placeholder="username" name="username">
+          <input type="password" placeholder="password" name="password">
+          <input type="submit" value="sign up">
+        </form>
 
-      <form id = "login" action="/login" method="POST">
-        <input type="text" placeholder="username" name="username">
-        <input type="password" placeholder="password" name="password">
-        <input type="submit" value="log in">
-      </form>
-    </nav>
-  <% end %>
-</div>
-<div class='container'>
-  <%= yield %>
-</div>
+        <form id = "login" action="/login" method="POST">
+          <input type="text" placeholder="username" name="username">
+          <input type="password" placeholder="password" name="password">
+          <input type="submit" value="log in">
+        </form>
+      </nav>
+    <% end %>
+  </div>
+
+  <div class='container'>
+    <%= yield %>
+  </div>
+
 </body>
 </html>

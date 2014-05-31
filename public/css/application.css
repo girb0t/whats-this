@@ -4,8 +4,9 @@
   max-width: 1000px;
   border: 1px dotted black;
   font-family: open sans;
-
 }
+
+/*TOP BAR*/
 
 #top-bar {
   width: 100%;
@@ -55,4 +56,15 @@ nav input {
 nav input[type="submit"] {
   width: 75px;
   /*margin-left: 25px;*/
+}
+
+
+/*CANVAS*/
+
+.canvas-area, .picture-frame {
+  border: 1px solid black;
+  width: 400px;
+  height: 400px;
+  overflow: hidden;
+  position: relative;
 }

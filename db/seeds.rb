@@ -41,7 +41,7 @@ end
 
 users.each do |user|
   user.games.each do |game|
-    10.times do
+    5.times do
       player = create_user
       player2 = create_user
       game_descriptions = Description.where(game_id: game.id)
@@ -55,7 +55,7 @@ end
 
 users_other.each do |user|
   user.games.each do |game|
-    10.times do
+    5.times do
       player = create_user
       player2 = create_user
       game_drawings = Drawing.where(game_id: game.id)

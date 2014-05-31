@@ -20,6 +20,8 @@ end
 post '/login' do
   user = User.find_by_username(params[:username])
   if user && user.authenticate(params[:password])
+    session[:user_id] = user.id
+    session[:username] = user.username
     redirect '/'
   else
     session[:last_error] = "There was a problem logging in. Please try again."

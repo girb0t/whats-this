@@ -1,1 +1,3 @@
-<h3>Draw it!</h3>
+<h3>Draw it! (game_id: <%= session[:game_id] %>)</h3>
+<h4>Sentence: <%= @last_description.body %></h4>
+<%= erb :_canvas %>
