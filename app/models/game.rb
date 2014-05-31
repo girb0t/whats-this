@@ -11,4 +11,8 @@ class Game < ActiveRecord::Base
   	@sorted_game_parts = game_parts.sort_by &:created_at
   end	
 
+  def get_last_game_element
+    get_game_elements.pop
+  end
+
 end

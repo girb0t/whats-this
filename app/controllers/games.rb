@@ -43,11 +43,13 @@ end
 
 get '/games/:id/play' do
 ############ NEXT MOVE IN A GAME. POSSIBLE BETTER WORD CHOICE.
-############ NEED METHOD IN GAME MODEL TO FETCH LAST GAME PART.
 	@game = Game.find(params[:id])
-	@description = Description.where(game_id: params[:id]).last
-	@drawing = Drawing.where(game_id: params[:id]).last
-  erb :play
+  @last_game_element = @game.get_last_game_element
+  if @last_game_element.class == Drawing
+    erb :describe
+  else
+    erb :draw
+  end
 end
 
 post '/games/:id/draw' do
