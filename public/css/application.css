@@ -1,6 +1,8 @@
 
 body {
   max-width: 1000px;
+  background-image: url('/img/greyzz.png');
+  background-repeat: repeat;
 }
 
 .container {
@@ -86,11 +88,12 @@ margin-left: 20px;
 
 .canvas-area, .picture-frame {
   float: left;
+  background-color: white;
   border: 1px solid black;
   width: 400px;
   height: 400px;
   overflow: hidden;
-  position: relative;
+  position: absolute;
 }
 
 .picture-frame {
