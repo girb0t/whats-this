@@ -23,7 +23,7 @@ end
 
 get '/games/inprogress' do
 ######## SWITCH ON PAGE WHERE OPTIONS: ALL, PICTURES, DESCRIPTIONS
-# Shows list of all games in progress
+# Shows list of all games in games_in_progress
 	@games_in_progress = Game.where(is_complete: false)
   erb :games_in_progress
 end

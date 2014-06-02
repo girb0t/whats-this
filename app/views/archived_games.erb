@@ -1,4 +1,10 @@
-<h3>Archived Games</h3>
+<h2>Archived Games</h2>
+
+<% if @archived_games.empty? %>
+  <div class="error">
+    <p>No archived games found.</p>
+  </div>
+<% end %>
 
 <div>	
 	<% @archived_games.each do |game| %>

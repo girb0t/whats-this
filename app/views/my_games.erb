@@ -1,4 +1,4 @@
-<h3>My Games</h3>
+<h2>My Games</h2>
 
 <div class='tab'>
   <ul>
@@ -10,7 +10,12 @@
 <div class='tab-pages'>
 
   <div class='tab-page'>
-    <h4>Games I Started</h4>
+    <h3>Games I Started</h3>
+    <% if @user_created_game_first_elements.empty? %>
+      <div class="error">
+        <p>You don't seem to have started any games.</p>
+      </div>
+    <% end %>
     <% @user_created_game_first_elements.each do |element| %>
       <% if element.class == Drawing %>
         <div class='picture-container'>
@@ -27,7 +32,12 @@
   </div>
 
   <div class='tab-page hidden'>
-    <h4>My Contributions</h4>
+    <h3>My Contributions</h3>
+    <% if @user_contributions.empty? %>
+      <div class="error">
+        <p>You don't seem to have contributed to any games.</p>
+      </div>
+    <% end %>
     <% @user_contributions.each do |element| %>
       <% if element.class == Drawing %>
         <div class='picture-container'>

@@ -1,16 +1,27 @@
+<h2>Games in Progress</h2>
+<h4>Click to play!</h4>
+
 <h3>Recent Pictures</h3>
-
-
+<% if @recent_drawings.empty? %>
+  <div class='error'>
+    <p>No Recent Pictures</p>
+  </div>
+<% end %>
 <% @recent_drawings.each do |drawing| %>
   <div class='picture-container'>
     <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
   </div>
-<% end %><br><br>
+<% end %>
 
 
 
+<h3 style="clear:left">Recent Descriptions</h3>
+<% if @recent_descriptions.empty? %>
+  <div class='error'>
+    <p>No Recent Descriptions</p>
+  </div>
+<% end %>
 <div class='description-list' style="clear:left">
-  <h3>Recent Descriptions</h3>
   <% @recent_descriptions.each do |description| %>
     <div class='outer-description-container'>
       <div class='inner-description-container'>

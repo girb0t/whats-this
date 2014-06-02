@@ -5,6 +5,21 @@ body {
   background-repeat: repeat;
 }
 
+h2 {
+  font-size: 1.5em;
+  text-decoration: underline;
+}
+
+h3 {
+  font-size: 1.3em;
+  padding-top: 50px;
+}
+
+h4 {
+  color: darkgray;
+  margin-top: 0;
+}
+
 .container {
   margin: 20px 20px 50px 20px;
   width: 100%;
@@ -28,7 +43,7 @@ body {
 
 .error p {
   color: red;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -148,15 +163,15 @@ margin-left: 20px;
   margin-top: 0;
 }
 
-/*.inner-description-container p {
-  color: black;
+.inner-description-container > p {
+  color: white;
   text-decoration: none;
   display: table-cell;
   vertical-align: middle;
   text-align: center;
   font-size: 1.6em;
   margin-top: 0;
-}*/
+}
 
 /* TIMELINE */
 .timeline {
@@ -183,8 +198,9 @@ margin-left: 20px;
 }
 
 .tab ul{
-  width: 27%;
-  margin: 0 auto;
+  width: 100%;
+  min-width: 100px;
+  margin: 0 20%;
   padding-left: 0;
 }
 

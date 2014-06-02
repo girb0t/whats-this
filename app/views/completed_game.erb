@@ -1,4 +1,4 @@
-<h3>Completed Game</h3>
+<h2>Game Timeline</h2>
 
 <div class='timeline'>
   <% @timeline.each do |element| %>
@@ -9,7 +9,7 @@
     <% elsif element.class == Description %>
       <div class='outer-description-container'>
         <div class='inner-description-container'>
-          <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
+          <p><%= element.body %></p>
         </div>
       </div>
     <% end %>
