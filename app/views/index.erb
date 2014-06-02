@@ -1,20 +1,22 @@
 <h3>Recent Pictures</h3>
 
-<div class='picture-list'>
-  <% @recent_drawings.each do |drawing| %>
-    <div class='picture-frame'>
-      <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
-    </div>
-  <% end %><br><br>
-</div>
+
+<% @recent_drawings.each do |drawing| %>
+  <div class='picture-container'>
+    <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
+  </div>
+<% end %><br><br>
 
 
 
-<div class='description-list'>
+<div class='description-list' style="clear:left">
   <h3>Recent Descriptions</h3>
   <% @recent_descriptions.each do |description| %>
-    <div class='description'>
-      <a href="/games/<%= description.game_id %>/play"><%= description.body %></a>
+    <div class='outer-description-container'>
+      <div class='inner-description-container'>
+        <a href="/games/<%= description.game_id %>/play"><p><%= description.body %></p></a>
+      </div>
     </div>
   <% end %><br><br>
 </div>
+
