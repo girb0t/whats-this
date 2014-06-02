@@ -5,6 +5,10 @@ body {
   background-repeat: repeat;
 }
 
+.canvas-wrapper {
+    margin-botom: 30px;
+}
+
 .container {
   margin: auto;
   width: 100%;
