@@ -16,13 +16,13 @@ $(document).ready(function() {
 	})
 
 
-  $('#save-picture-button').click(function(e) {
-      var svg = paper.project.exportSVG({asString: true});
-      var data = {svg: svg}
-      $.post('/draw', data, function(response) {
-              console.log('done');
-      });
-  })
+  // $('#save-picture-button').click(function(e) {
+  //     var svg = paper.project.exportSVG({asString: true});
+  //     var data = {svg: svg}
+  //     $.post('/draw', data, function(response) {
+  //             console.log('done');
+  //     });
+  // })
 
   $('.tab li').click(function(e) {
     var index = $(this).index();
