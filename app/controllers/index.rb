@@ -5,18 +5,17 @@ get '/' do
 end
 
 post '/signup' do
-  # CREATE NEW USER
   user = User.new(username: params[:username], password: params[:password], password_confirmation: params[:password])
   if user.save  
     session[:user_id] = user.id
     session[:username] = user.username
     redirect '/'
+  elsif User.find_by_username(params[:username])
+    session[:last_error] = "That username is already taken. Please try again."
+    redirect '/'
   else
-    # Error message should check to see if user exists
-    @error = "There was a problem creating a new user. "
-    @error += "The username was probably already taken. "
-    @error += "More useful error messages in the works."
-    erb :error 
+    session[:last_error] = "There was a problem creating a new user."
+    redirect '/'
   end
 end
 
@@ -26,10 +25,9 @@ post '/login' do
     session[:user_id] = user.id
     session[:username] = user.username
     redirect '/'
-  else
-    @error = "There was a problem logging in. Please try again. "
-    @error += "More useful error messages in the works."
-    erb :error
+  else 
+    session[:last_error] = "Problem logging in.  Please check your username and password and try again."
+    redirect '/'
   end
 end
 

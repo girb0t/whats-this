@@ -5,10 +5,9 @@ get '/mygames' do
     @user_created_game_first_elements = get_first_elements(@user.get_created_games)
     @user_contributions = @user.get_participated_games_contributions
     erb :my_games
-
   else
-    @error = "Must be logged in to view 'mygames'"
-    erb :error
+    session[:last_error] = "Must be logged in to view 'mygames'"
+    redirect '/'
   end
 end
 
@@ -16,8 +15,8 @@ get '/new' do
   if session[:user_id]
     erb :new_game
   else
-    @error = "Must be logged in to create new game"
-    erb :error
+    session[:last_error] = "Must be logged in to create new game."
+    redirect '/'
   end
 end
 
@@ -41,8 +40,8 @@ get '/games/:id' do
 	if @game.is_complete
 	  erb :completed_game
 	else
-    @error = "Can't view timeline of incomplete game!"
-    erb :error
+    session[:last_error] = "Can't view timeline of incomplete game!"
+    redirect '/'
 	end
 end
 
@@ -50,8 +49,8 @@ get '/games/:id/play' do
   if session[:user_id]
     game = Game.find(params[:id])
     if game.get_last_game_element.user_id == session[:user_id]
-      @error = "Dude, you can't play your own contribution. Lame."
-      erb :error
+      session[:last_error] = "Dude, you can't play your own contribution. Lame."
+      redirect '/'
     else
       session[:game_id] = params[:id]
       last_game_element = game.get_last_game_element
@@ -64,10 +63,9 @@ get '/games/:id/play' do
         redirect '/draw'
       end
     end
-
   else
-    @error = "Please sign in or create an account to play."
-    erb :error
+    session[:last_error] = "Please sign in or create an account to play."
+    redirect '/'
   end
 
 
