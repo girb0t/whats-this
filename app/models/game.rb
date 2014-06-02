@@ -21,9 +21,9 @@ class Game < ActiveRecord::Base
     game_elements = get_game_elements
     game_elements.map! do |element|
       if element.class == Drawing
-        element.picture
+        element
       else
-        element.body
+        element
       end
     end
     game_elements

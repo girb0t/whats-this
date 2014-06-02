@@ -14,9 +14,9 @@ body {
   width: 100%;
   min-height: 700px;
   padding-top: 65px;
-  border: 1px dotted black;
   font-family: open sans;
   position: absolute;
+  margin-bottom: 50px;
 }
 
 .hidden {
@@ -90,7 +90,7 @@ margin-left: 20px;
   clear: left;
 }
 
-.canvas-area, .picture-frame {
+.canvas-area, .picture-container {
   float: left;
   background-color: white;
   border: 1px solid black;
@@ -102,11 +102,68 @@ margin-left: 20px;
   height: 400px;
 }
 
-.picture-frame {
+.picture-container {
   margin-left: 20px;
   margin-bottom: 20px;
   width: 300px;
   height: 300px;
+}
+
+/* DESCRIPTION */
+.outer-description-container {
+  display: table-cell;
+  border: 3px solid blue;
+  width: 300px;
+  height: 300px;
+  position: relative;
+  float: left;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  background-color: black;
+}
+
+.inner-description-container {
+  position: absolute;
+  width: 280px;
+  height: 300px;
+  display: table;
+}
+
+.inner-description-container a {
+  color: white;
+  text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.6em;
+  margin-top: 0;
+}
+
+/*.inner-description-container p {
+  color: black;
+  text-decoration: none;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 1.6em;
+  margin-top: 0;
+}*/
+
+/* TIMELINE */
+.timeline {
+  margin-left: 20px;
+}
+
+.timeline .picture-container {
+  float: none;
+  margin: 30px 0;
+  position: static;
+}
+
+.timeline .outer-description-container {
+  float: none;
+  margin: 0;
+  position: static;
 }
 
 /* SWITCH */

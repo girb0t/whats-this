@@ -32,9 +32,9 @@ $(document).ready(function() {
     $(".tab-pages div:nth-child(" + (index + 1) + ")").show();
   });
 
-  // $('.picture-frame svg').attr("width", 300)
-  // $('.picture-frame svg').attr("height", 300)
-  // $('.picture-frame svg').attr("viewBox", "0 0 400 400")
+  // $('.picture-container svg').attr("width", 300)
+  // $('.picture-container svg').attr("height", 300)
+  // $('.picture-container svg').attr("viewBox", "0 0 400 400")
 
  })
 
