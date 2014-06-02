@@ -14,7 +14,7 @@
       <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
     </div>
     <p class='author'>by <%= drawing.user.username %></p>
-    <p class='round-info'>Round <%= drawing.game.get_game_elements.count %> of 15</p>
+    <p class='round-info'>Round <%= drawing.game.get_game_elements.count %> of 10</p>
   </div>
 <% end %>
   
@@ -33,7 +33,7 @@
         <a href="/games/<%= description.game_id %>/play"><p><%= description.body %></p></a>
       </div>
       <p class='author'>by <%= description.user.username %></p>
-      <p class='round-info'>Round <%= description.game.get_game_elements.count %> of 15</p>
+      <p class='round-info'>Round <%= description.game.get_game_elements.count %> of 10</p>
     </div>
   <% end %><br><br>
 </div>

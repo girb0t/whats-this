@@ -23,7 +23,7 @@
             <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
           </div>
           <p class='author'>by <%= element.user.username %></p>
-          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 15</p>
+          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 10</p>
         </div>
       <% elsif element.class == Description %>
         <div class='outer-description-container'>
@@ -31,7 +31,7 @@
             <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
           </div>
           <p class='author'>by <%= element.user.username %></p>
-          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 15</p>
+          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 10</p>
         </div>
       <% end %>
     <% end %>
@@ -52,7 +52,7 @@
             <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
           </div>
           <p class='author'>by <%= element.user.username %></p>
-          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 15</p>
+          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 10</p>
         </div>
 
       <% elsif element.class == Description %>
@@ -61,7 +61,7 @@
             <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
           </div>
           <p class='author'>by <%= element.user.username %></p>
-          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 15</p>
+          <p class='round-info'>Round <%= element.game.get_game_elements.count %> of 10</p>
         </div>
       <% end %>
     <% end %>

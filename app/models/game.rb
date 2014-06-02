@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :descriptions
 
   def check_finished
-    if get_game_elements.count >= 15
+    if get_game_elements.count >= 10
       self.update_attribute("is_complete", true)
     end
   end
