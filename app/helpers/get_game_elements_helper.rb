@@ -15,4 +15,12 @@ helpers do
     first_elements
   end #def
 
+  def get_thumbnails_from_drawing_array(drawing_array)
+    thumbnails = []
+    drawing_array.each do |drawing|
+      thumbnails << drawing.thumbnail
+    end
+    thumbails
+  end
+
 end

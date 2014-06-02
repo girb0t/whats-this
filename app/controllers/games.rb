@@ -5,6 +5,7 @@ get '/mygames' do
     @user_created_game_first_elements = get_first_elements(@user.get_created_games)
     @user_contributions = @user.get_participated_games_contributions
     erb :my_games
+
   else
     @error = "Must be logged in to view 'mygames'"
     erb :error
