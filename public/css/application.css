@@ -128,16 +128,26 @@ margin-left: 20px;
 
 .outer-picture-container {
   float: left;
+  position: relative;
   margin-left: 20px;
-  margin-bottom: 80px;
   width: 300px;
-  height: 330px;
+  height: 340px;
 }
 
 .outer-picture-container p.author {
-  margin: 0;
-  padding-left: 10px; 
-  float: left;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  /*margin: 0;*/
+  /*padding-left: 10px; */
+}
+
+.outer-picture-container p.round-info {
+  color: blue;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 
 .inner-picture-container {
@@ -152,7 +162,7 @@ margin-left: 20px;
 .outer-description-container {
   display: table-cell;
   width: 300px;
-  height: 330px;
+  height: 340px;
   position: relative;
   float: left;
   margin-left: 20px;
@@ -163,19 +173,27 @@ margin-left: 20px;
 /*  margin: 0;
   padding-left: 10px;
   float: left;
-  display: table;
-  position: absolute;*/
+  display: table;*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
+.outer-description-container p.round-info {
+  color: blue;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
 .inner-description-container {
   background-color: black;
   border: 3px solid blue;
   position: absolute;
-  width: 280px;
+  width: 300px;
   height: 300px;
   display: table;
 }
-
 .inner-description-container a {
   color: white;
   text-decoration: none;
