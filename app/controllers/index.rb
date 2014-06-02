@@ -1,6 +1,6 @@
 get '/' do
-  @recent_drawings = Game.get_all_last_drawings
   @recent_descriptions = Game.get_all_last_descriptions
+  @recent_drawings = Game.get_all_last_drawings
   erb :index
 end
 

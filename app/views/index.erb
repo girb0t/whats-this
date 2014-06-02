@@ -3,7 +3,7 @@
 <div class='picture-list'>
   <% @recent_drawings.each do |drawing| %>
     <div class='picture-frame'>
-      <a href="/games/<%= drawing.game_id %>/play"><%= drawing.picture %></a>
+      <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
     </div>
   <% end %><br><br>
 </div>
