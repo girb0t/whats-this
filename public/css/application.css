@@ -10,13 +10,12 @@ body {
 }
 
 .container {
-  margin: auto;
+  margin: 20px 20px 50px 20px;
   width: 100%;
   min-height: 700px;
   padding-top: 65px;
   font-family: open sans;
   position: absolute;
-  margin-bottom: 50px;
 }
 
 .hidden {

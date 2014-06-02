@@ -28,8 +28,8 @@ $(document).ready(function() {
     var index = $(this).index();
     $('.tab li').removeClass("active");
     $(this).addClass("active");
-    $('.tab-pages div').hide();
-    $(".tab-pages div:nth-child(" + (index + 1) + ")").show();
+    $('.tab-pages div.tab-page').hide();
+    $(".tab-pages div.tab-page:nth-child(" + (index + 1) + ")").show();
   });
 
   // $('.picture-container svg').attr("width", 300)

@@ -1,44 +1,46 @@
 <h3>My Games</h3>
 
-<h4>Games I Started</h4>
+<div class='tab'>
+  <ul>
+    <li class='active'>Games I Started</li>
+    <li>Games I Played</li>
+  </ul>
+</div><br>
 
-<div>
-  <% @user_created_game_first_elements.each do |element| %>
+<div class='tab-pages'>
 
-    <% if element.class == Drawing %>
-      <div class='picture-container'>
-        <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
-      </div>
-    <% elsif element.class == Description %>
-      <div class='outer-description-container'>
-        <div class='inner-description-container'>
-          <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
+  <div class='tab-page'>
+    <h4>Games I Started</h4>
+    <% @user_created_game_first_elements.each do |element| %>
+      <% if element.class == Drawing %>
+        <div class='picture-container'>
+          <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
         </div>
-      </div>
-    <% end %>
-
-  <% end %>
-
-</div>
-<br>
-<br>
-
-<div style="clear:left">
-  <h4>My Contributions</h4>
-
-  <% @user_contributions.each do |element| %>
-
-    <% if element.class == Drawing %>
-      <div class='picture-container'>
-        <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
-      </div>
-    <% elsif element.class == Description %>
-      <div class='outer-description-container'>
-        <div class='inner-description-container'>
-          <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
+      <% elsif element.class == Description %>
+        <div class='outer-description-container'>
+          <div class='inner-description-container'>
+            <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
+          </div>
         </div>
-      </div>
+      <% end %>
     <% end %>
+  </div>
 
-  <% end %>
+  <div class='tab-page hidden'>
+    <h4>My Contributions</h4>
+    <% @user_contributions.each do |element| %>
+      <% if element.class == Drawing %>
+        <div class='picture-container'>
+          <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
+        </div>
+      <% elsif element.class == Description %>
+        <div class='outer-description-container'>
+          <div class='inner-description-container'>
+            <a href="/games/<%= element.game_id %>"><p><%= element.body %></p></a>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
 </div>
