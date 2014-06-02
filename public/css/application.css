@@ -5,10 +5,6 @@ body {
   background-repeat: repeat;
 }
 
-.canvas-wrapper {
-    margin-botom: 30px;
-}
-
 .container {
   margin: 20px 20px 50px 20px;
   width: 100%;
@@ -18,8 +14,22 @@ body {
   position: absolute;
 }
 
+.canvas-wrapper {
+    margin-botom: 30px;
+}
+
 .hidden {
   display: none;
+}
+
+.error {
+  width: 80%;
+}
+
+.error p {
+  color: red;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
 

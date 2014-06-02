@@ -47,18 +47,30 @@ get '/games/:id' do
 end
 
 get '/games/:id/play' do
-############ NEXT MOVE IN A GAME. POSSIBLE BETTER WORD CHOICE.
-  session[:game_id] = params[:id]
-  game = Game.find(session[:game_id])
-  last_game_element = game.get_last_game_element
-  if last_game_element.class == Drawing
-    puts '*' * 60
-    redirect '/describe'
+  if session[:user_id]
+    game = Game.find(params[:id])
+    if game.get_last_game_element.user_id == session[:user_id]
+      @error = "Dude, you can't play your own contribution. Lame."
+      erb :error
+    else
+      session[:game_id] = params[:id]
+      last_game_element = game.get_last_game_element
+      if last_game_element.class == Drawing
+        puts '*' * 60
+        redirect '/describe'
+      else
+        puts '#' * 60
+        p 
+        redirect '/draw'
+      end
+    end
+
   else
-    puts '#' * 60
-    p 
-    redirect '/draw'
+    @error = "Please sign in or create an account to play."
+    erb :error
   end
+
+
 end
 
 get '/describe' do

@@ -4,7 +4,7 @@ class Game < ActiveRecord::Base
   has_many :descriptions
 
   def check_finished
-    if self.get_game_elements.count >= 15
+    if get_game_elements.count >= 15
       self.update_attribute("is_complete", true)
     end
   end
@@ -38,10 +38,10 @@ class Game < ActiveRecord::Base
   end
 
 
-  def self.get_all_last_drawings
+  def self.get_all_last_drawings_of_inprogress
     last_drawings = []
     self.all.each do |game|
-      if game.get_last_game_element.class == Drawing
+      if game.get_last_game_element.class == Drawing && !game.is_complete
         last_drawings << game.get_last_game_element
       end
     end
@@ -49,10 +49,10 @@ class Game < ActiveRecord::Base
     last_drawings.reverse
   end  
 
-  def self.get_all_last_descriptions
+  def self.get_all_last_descriptions_of_inprogress
     last_descriptions = []
     self.all.each do |game|
-      if game.get_last_game_element.class == Description
+      if game.get_last_game_element.class == Description && !game.is_complete
         last_descriptions << game.get_last_game_element
       end
     end

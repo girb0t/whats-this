@@ -1,6 +1,6 @@
 get '/' do
-  @recent_descriptions = Game.get_all_last_descriptions
-  @recent_drawings = Game.get_all_last_drawings
+  @recent_descriptions = Game.get_all_last_descriptions_of_inprogress
+  @recent_drawings = Game.get_all_last_drawings_of_inprogress
   erb :index
 end
 
@@ -13,8 +13,10 @@ post '/signup' do
     redirect '/'
   else
     # Error message should check to see if user exists
-    session[:last_error] = "There was a problem creating new user."
-    redirect '/'
+    @error = "There was a problem creating a new user. "
+    @error += "The username was probably already taken. "
+    @error += "We're working on displaying more useful error messages."
+    erb :error 
   end
 end
 
