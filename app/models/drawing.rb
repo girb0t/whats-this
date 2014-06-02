@@ -9,7 +9,7 @@ class Drawing < ActiveRecord::Base
   def thumbnail
     svg = self.picture
     svg.gsub!(/width="\d+"/, 'width="300"')
-    svg.gsub!(/height="\d+"/, 'height="300" viewBox="0 0 400 400"')
+    svg.gsub!(/height="\d+"/, 'height="300" viewBox="0 0 500 500"')
     svg
   end
 end

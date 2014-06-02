@@ -122,16 +122,18 @@ margin-left: 20px;
 }
 
 .canvas-area {
-  width: 400px;
-  height: 400px;
+  width: 500px;
+  height: 500px;
 }
 
 .picture-container {
   margin-left: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 80px;
   width: 300px;
   height: 300px;
 }
+
+
 
 /* DESCRIPTION */
 .outer-description-container {

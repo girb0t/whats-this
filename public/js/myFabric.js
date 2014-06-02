@@ -9,24 +9,13 @@ $(document).ready(function(){
   $(function () {
       canvas = window._canvas = new fabric.Canvas('canvas');
       canvas.backgroundColor = '#efefef';
+      canvas.setHeight(500);
+      canvas.setWidth(500);
       
       canvas.renderAll();
       canvas.isDrawingMode = !canvas.isDrawingMode;
-      canvas.freeDrawingBrush.width = 15;
+      canvas.freeDrawingBrush.width = 13;
       canvas.freeDrawingBrush.color = "#fff";
-
-
-
-      // document.getElementById('freedraw').addEventListener('click', function () {
-      //     canvas.isDrawingMode = !canvas.isDrawingMode;
-      //     canvas.freeDrawingBrush.width = 15;
-      // });
-
-      // document.getElementById('colorpicker').addEventListener('change', function (e) {
-      //     console.log(e.target.value);
-      //     // canvas.freeDrawingBrush.color = e.target.value;
-      //     canvas.freeDrawingBrush.color = '#33FF33';
-      // });
 
       $('.color')[0].addEventListener('change', function (e) {
           console.log($(this).css('background-color'));
@@ -35,8 +24,7 @@ $(document).ready(function(){
 
       $('#save').click(function(e) {
           var svg = canvas.toSVG();
-          // console.log(picture);
-          var data = {svg: svg}
+          var data = {svg: svg};
           $.post('/draw', data, function(response) {
               console.log('done');
               window.location.href = '/';

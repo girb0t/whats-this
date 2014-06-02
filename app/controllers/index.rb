@@ -15,7 +15,7 @@ post '/signup' do
     # Error message should check to see if user exists
     @error = "There was a problem creating a new user. "
     @error += "The username was probably already taken. "
-    @error += "We're working on displaying more useful error messages."
+    @error += "More useful error messages in the works."
     erb :error 
   end
 end
@@ -27,8 +27,9 @@ post '/login' do
     session[:username] = user.username
     redirect '/'
   else
-    session[:last_error] = "There was a problem logging in. Please try again."
-    redirect '/'
+    @error = "There was a problem logging in. Please try again. "
+    @error += "More useful error messages in the works."
+    erb :error
   end
 end
 

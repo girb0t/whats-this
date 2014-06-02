@@ -8,9 +8,11 @@
   </div>
 <% end %>
 <% @recent_drawings.each do |drawing| %>
+
   <div class='picture-container'>
     <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
   </div>
+  <!-- <p class='author'>by <%= drawing.user.username %></p> -->
 <% end %>
 
 
