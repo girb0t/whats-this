@@ -18,8 +18,11 @@
     <% end %>
     <% @user_created_game_first_elements.each do |element| %>
       <% if element.class == Drawing %>
-        <div class='picture-container'>
-          <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
+        <div class='outer-picture-container'>
+          <div class='inner-picture-container'>
+            <a href="/games/<%= element.game_id %>"><%= element.thumbnail %></a>
+          </div>
+          <p class='author'>by <%= element.user.username %></p>
         </div>
       <% elsif element.class == Description %>
         <div class='outer-description-container'>

@@ -114,41 +114,62 @@ margin-left: 20px;
   clear: left;
 }
 
-.canvas-area, .picture-container {
-  float: left;
+.canvas-area, .inner-picture-container {
   background-color: white;
   border: 1px solid black;
   overflow: hidden;
 }
 
 .canvas-area {
+  float: left;
   width: 500px;
   height: 500px;
 }
 
-.picture-container {
+.outer-picture-container {
+  float: left;
   margin-left: 20px;
   margin-bottom: 80px;
   width: 300px;
+  height: 330px;
+}
+
+.outer-picture-container p.author {
+  margin: 0;
+  padding-left: 10px; 
+  float: left;
+}
+
+.inner-picture-container {
+  width: 300px;
   height: 300px;
 }
+
 
 
 
 /* DESCRIPTION */
 .outer-description-container {
   display: table-cell;
-  border: 3px solid blue;
   width: 300px;
-  height: 300px;
+  height: 330px;
   position: relative;
   float: left;
   margin-left: 20px;
   margin-bottom: 20px;
-  background-color: black;
+}
+
+.outer-description-container p.author {
+/*  margin: 0;
+  padding-left: 10px;
+  float: left;
+  display: table;
+  position: absolute;*/
 }
 
 .inner-description-container {
+  background-color: black;
+  border: 3px solid blue;
   position: absolute;
   width: 280px;
   height: 300px;

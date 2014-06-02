@@ -9,10 +9,12 @@
 <% end %>
 <% @recent_drawings.each do |drawing| %>
 
-  <div class='picture-container'>
-    <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
+  <div class='outer-picture-container'>
+    <div class='inner-picture-container'>
+      <a href="/games/<%= drawing.game_id %>/play"><%= drawing.thumbnail %></a>
+    </div>
+    <p class='author'>by <%= drawing.user.username %></p>
   </div>
-  <!-- <p class='author'>by <%= drawing.user.username %></p> -->
 <% end %>
 
 
@@ -29,6 +31,7 @@
       <div class='inner-description-container'>
         <a href="/games/<%= description.game_id %>/play"><p><%= description.body %></p></a>
       </div>
+      <p class='author'>by <%= description.user.username %></p>
     </div>
   <% end %><br><br>
 </div>
