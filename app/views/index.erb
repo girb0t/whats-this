@@ -1,3 +1,8 @@
+<% if session[:last_error] %>
+  <p style="color: red"><strong><%= session[:last_error] %></strong></p>
+  <% session[:last_error].clear %>
+<% end %>
+
 <h2>Games in Progress</h2>
 <h4>Click to play!</h4>
 
