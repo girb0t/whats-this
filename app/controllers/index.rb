@@ -10,11 +10,11 @@ post '/signup' do
     session[:user_id] = user.id
     session[:username] = user.username
     redirect '/'
-  elsif User.find_by_username(params[:username])
+  elsif User.find(:first, :conditions => ["lower(username) = ?", params[:username].downcase])
     session[:last_error] = "That username is already taken. Please try again."
     redirect '/'
   else
-    session[:last_error] = "There was a problem creating a new user."
+    session[:last_error] = "There was a problem creating new user."
     redirect '/'
   end
 end
@@ -26,7 +26,7 @@ post '/login' do
     session[:username] = user.username
     redirect '/'
   else 
-    session[:last_error] = "Problem logging in.  Please check your username and password and try again."
+    session[:last_error] = "Problem logging in.  Please check your username and password and try again.  NOTE: Usernames are case-sensitive."
     redirect '/'
   end
 end
