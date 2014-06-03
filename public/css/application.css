@@ -236,18 +236,26 @@ margin-left: 20px;
 /* TIMELINE */
 .timeline {
   margin-left: 20px;
+  width: 100%;
+  margin: 0 auto;
 }
 
 .timeline .picture-container {
   float: none;
-  margin: 30px 0;
+  margin: 50px 0;
   position: static;
 }
 
 .timeline .outer-description-container {
   float: none;
-  margin: 0;
-  position: static;
+  width: 960px;
+  margin: 0 auto;
+  position: relative;
+  height: 300px;
+}
+
+.timeline .inner-description-container {
+  margin: 0 329px;
 }
 
 /* SWITCH */
