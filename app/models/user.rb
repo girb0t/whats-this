@@ -2,7 +2,8 @@ class User < ActiveRecord::Base
 
   has_secure_password
 
-  validates :username, presence: :true, uniqueness: :true
+  validates :username, presence: :true
+  validates_uniqueness_of :username, case_sensitive: false
   validates :password_digest, presence: :true
   has_many :drawings
   has_many :descriptions
