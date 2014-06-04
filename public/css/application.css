@@ -118,6 +118,21 @@ nav input[type="submit"] {
   /*margin-left: 25px;*/
 }
 
+/*INSTRUCTIONS*/
+
+#instructions {
+  width: 85%;
+  margin: 0 auto;
+}
+
+#instructions p {
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+#instructions li {
+  font-size: 1.1em;
+}
 
 /*CANVAS*/
 

@@ -1,7 +1,7 @@
 whats-this
 ==========
 
-A drawing and telling game.
+Pictionary Telephone!
 
 ![Alt text](http://i.minus.com/i4bJfdVycKfKv.png)
 
@@ -18,5 +18,3 @@ A drawing and telling game.
 * Beverly Mah
 * Stephen Roth
 * Pei Xiong Liu
-
-

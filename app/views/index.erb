@@ -6,12 +6,16 @@
 <% end %>
 
 
-<h2>Games in Progress</h2>
-<ul>
-  <li>Click on a <span>picture</span> or <span>description</span> to play!</li>
-  <li>Games are finished after 10 rounds.</li>
-  <li>View a timeline of finished games in the <span>Archive</span>!</li>
-</ul>
+<h2>Pictionary Telephone!</h2>
+<div id='instructions'>
+  <p>This is a game where players alternate between drawing pictures based off captions and writing captions to describe pictures. The end result is a hilarious timeline that becomes more distorted with every turn.</p>
+  <ul>
+    <li style='color:#31B404'>Click on a picture or caption to contribute to an existing game.</li>
+    <li style='color:#0101DF'>A game is finished after 10 rounds.</li>
+    <li style='color:#DBA901'>Timelines of finished games can be viewed in the Archive.</li>
+    <li style='color:#FF00FF'>Start a new game by clicking on 'start new game' in the nav bar.</li>
+  </ul>
+</div>
 
 <h3>Recent Pictures</h3>
 <% if @recent_drawings.empty? %>
