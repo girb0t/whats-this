@@ -1,7 +1,10 @@
-<% if session[:last_error] %>
-  <p style="color: red"><strong><%= session[:last_error] %></strong></p>
-  <% session[:last_error].clear %>
+<% if @error %>
+  <div class='error'>
+    <p><%= @error %></p>
+  </div>
+  <% session.delete(:last_error) %>
 <% end %>
+
 
 <h2>Games in Progress</h2>
 <ul>

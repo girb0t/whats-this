@@ -1,6 +1,9 @@
 get '/' do
   @recent_descriptions = Game.get_all_last_descriptions_of_inprogress
   @recent_drawings = Game.get_all_last_drawings_of_inprogress
+  if session[:last_error]
+    @error = session[:last_error]
+  end
   erb :index
 end
 

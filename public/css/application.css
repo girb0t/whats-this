@@ -45,12 +45,15 @@ canvas {
 
 .error {
   width: 80%;
+  margin: 0 auto;
 }
 
 .error p {
   color: red;
   font-size: 1.1em;
   font-weight: bold;
+  padding: 10px;
+  border: 3px dashed red;
 }
 
 ul {
