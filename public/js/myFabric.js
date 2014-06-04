@@ -23,7 +23,6 @@ $(document).ready(function(){
       })
 
       $('#brush-width')[0].addEventListener('change', function(e) {
-          console.log($(this).val());
           canvas.freeDrawingBrush.width = 2 + parseInt($(this).val()) * 3;
           console.log("width: " + canvas.freeDrawingBrush.width)
       })
