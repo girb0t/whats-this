@@ -1,7 +1,4 @@
 $(document).ready(function() {
-  
-	$('#signup').hide();
-	$('#login').hide();
 
 	$('#signup_btn').on('click', function(e){
 		e.preventDefault();
