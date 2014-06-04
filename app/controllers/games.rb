@@ -13,6 +13,8 @@ end
 
 get '/new' do
   if session[:user_id]
+    session.delete(:game_id)
+    session.delete(:last_description_id)
     erb :new_game
   else
     session[:last_error] = "Must be logged in to create new game."
