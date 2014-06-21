@@ -1,7 +1,11 @@
 whats-this
 ==========
 
+whats-this@herokuapp.com
+
 Pictionary Telephone!
+A game where players alternate between drawing pictures based off captions and writing captions to describe pictures. The end result is a hilarious timeline that becomes more distorted with every turn.
+
 
 ![Alt text](http://i.minus.com/i4bJfdVycKfKv.png)
 
