@@ -1,3 +1,5 @@
+This app is being rebuilt at: https://github.com/girb0t/whats-this-2.0
+
 whats-this
 ==========
 
